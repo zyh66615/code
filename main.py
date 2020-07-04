@@ -3,7 +3,10 @@ import time
 
 
 def task(self, name: str, age: int):
-    pass
+    t = 0
+    for _ in range(10**7):
+        t += 1
+    print(t)
 
 
 if __name__ == '__main__':
