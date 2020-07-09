@@ -17,5 +17,6 @@ urlpatterns = [
     path('api/del_reply', views.del_reply),
     path('api/download', views.download),
     path('api/upload_text', views.upload_text),
-    path('api/logout', views.logout)
+    path('api/logout', views.logout),
+    path('api/download_images', views.download_images)
 ]

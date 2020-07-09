@@ -1,1 +1,1 @@
-celery -A firstweb.celery worker -l info
+celery -A firstweb.celery worker -B -l info
