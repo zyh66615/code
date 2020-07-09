@@ -2,14 +2,14 @@ import time
 import requests
 import random
 from requests.exceptions import HTTPError, ConnectionError
-from queue import Queue
-from threading import Thread
+# from queue import Queue
+# from threading import Thread
 import re
 from aiohttp import ClientSession
 import asyncio
 import os
 from lxml import etree
-import math
+# import math
 
 
 class Downloader(object):
@@ -41,13 +41,15 @@ class Downloader(object):
                 async with session.get([u for u in url.values()][0], headers=self.headers) as response:
                     text = await response.text()
                     num = [u for u in url.keys()][0]
-                    html = text.replace('\r', '').replace('\n', '').replace('\u3000', ' ').replace('\t', '')
+                    html = text.replace('\r', '').replace(
+                        '\n', '').replace('\u3000', ' ').replace('\t', '')
                     pattern = re.compile('<div id="content">.*')
                     pattern1 = re.compile('<div class="bookname">.*</h1>')
                     title = pattern1.search(html)
                     if title:
                         title = title.group()[26:-5]
-                        s = pattern.search(html).group().replace('<br/><br/>', ' ')
+                        s = pattern.search(html).group().replace(
+                            '<br/><br/>', ' ')
                         p = re.compile('</script>.*?<script>')
                         texts = p.search(s).group()[9:-8]
                         result = title + '\n' + texts
@@ -114,15 +116,18 @@ class Downloader(object):
     def search(self):
         print('开始访问')
         start = time.time()
-        html = requests.get('https://www.biqudu.net/searchbook.php?keyword=' + self.title)
+        html = requests.get(
+            'https://www.biqudu.net/searchbook.php?keyword=' + self.title)
         html = html.text.replace('\r', '').replace('\n', '').replace(' ', '')
-        pattern = re.compile('<divclass="item"><divclass="image"><ahref=".*?"><img.*?>')
+        pattern = re.compile(
+            '<divclass="item"><divclass="image"><ahref=".*?"><img.*?>')
         s = pattern.search(html)
         if s:
             s = s.group()
             p = re.compile('<ahref=".*?">')
             pp = re.compile('"alt=".*?"')
-            pt = re.compile('<divclass="item"><divclass="image"><ahref=".*?">.*?</dl>')
+            pt = re.compile(
+                '<divclass="item"><divclass="image"><ahref=".*?">.*?</dl>')
             k = pt.search(html).group()
             pt1 = re.compile('<dd>.*</dd>')
             results = pt1.search(k).group()[4:-5].replace('&nbsp;', ' ')
@@ -179,7 +184,8 @@ if __name__ == '__main__':
         'Accept-Language': 'zh-cn',
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'
     }
-    html = requests.get('https://www.biqudu.net/searchbook.php?keyword=韩娱',headers=headers)
+    html = requests.get(
+        'https://www.biqudu.net/searchbook.php?keyword=韩娱', headers=headers)
     print(time.time()-start)
     input()
     asyncio.run(main())
