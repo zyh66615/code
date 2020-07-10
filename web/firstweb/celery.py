@@ -17,7 +17,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'task2': {
         'task': 'backend.tasks.crawl_images',
-        'schedule': crontab(hour=14, minute=20)
+        'schedule': crontab(hour=12, minute=0)
     }
 }
 # Load task modules from all registered Django app configs.

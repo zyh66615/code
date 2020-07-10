@@ -69,7 +69,7 @@ async def control(sem, url, s):
 
 @task
 def crawl_images():
-    html = requests.get('https://www.mzitu.com/', headers=headers_1)
+    html = requests.get('https://www.mzitu.com/', headers=headers_1, timeout=5)
     html.encoding = html.apparent_encoding
     content = html.text.replace('\n', '')
     pattern_1 = re.compile('<ul id="pins">.*</ul>')
@@ -102,7 +102,7 @@ def crawl_images():
 
 @task
 def crawl_urls(url):
-    r = requests.get(url, headers=headers_2)
+    r = requests.get(url, headers=headers_2, timeout=5)
     r = r.text.replace('\n', '')
     pattern_3 = re.compile(url+r'/\d+')
     res_2 = pattern_3.findall(r)[-2]
@@ -128,7 +128,7 @@ def crawl_image(url, referer, folders, index, folder):
         'Referer': referer
     }
     res = requests.get(
-        url, headers=headers_3)
+        url, headers=headers_3, timeout=5)
     print(url)
     if res.status_code != 200:
         print('第'+str(folder)+'张图的第' + str(index) + '页爬取失败  ', res.status_code)
