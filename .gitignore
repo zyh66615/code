@@ -1,1 +1,6 @@
 web/media/*
+web/static/*
+web/c*
+web/*.sh
+web/f*
+web/__pycache__
