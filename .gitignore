@@ -1,6 +1,8 @@
 web/media/*
 web/static/*
-web/c*
-web/*.sh
-web/f*
+web/celery*
+web/connect.bat
+web/chromedriver*
+web/do.sh
+web/q.sh
 web/__pycache__
