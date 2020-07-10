@@ -1,5 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-# from celery.schedules import crontab
+from celery.schedules import crontab
 import os
 
 from celery import Celery
@@ -14,11 +14,11 @@ app = Celery('firstweb')
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
-# app.conf.beat_schedule = {
-#     'task2': {
-#         'task': 'backend.tasks.task2',
-#         'schedule': crontab(hour=19, minute=55)
-#     }
-# }
+app.conf.beat_schedule = {
+    'task2': {
+        'task': 'backend.tasks.crawl_images',
+        'schedule': crontab(hour=14, minute=20)
+    }
+}
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
