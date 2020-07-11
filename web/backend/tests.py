@@ -22,7 +22,7 @@ if __name__ == '__main__':
         if -1:
             print(1)
         html = requests.get('https://www.baidu.com/',
-                            headers=headers_1, timeout=(1, 1))
+                            headers=headers_1, timeout=(0.1, 0.1))
     except Exception as e:
         print(e)
     print(time.time() - start)

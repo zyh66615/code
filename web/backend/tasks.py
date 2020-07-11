@@ -74,7 +74,7 @@ def crawl_images():
     day = datetime.date.today()
     delta = datetime.timedelta(days=1)
     day = str(day - delta)
-    if os.path.exists('./media/images/爬取/' + day):
+    if os.path.exists('./media/images/爬取/' + day + '/flag.txt'):
         with open('./media/images/爬取/' + day + '/flag.txt', 'r+') as f:
             a = f.read()
         if a == '已完全爬取':
