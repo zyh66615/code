@@ -2,6 +2,7 @@ import re
 import requests
 import random
 import time
+from requests.adapters import HTTPAdapter
 
 headers_1 = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -16,7 +17,12 @@ if __name__ == '__main__':
     # html = html.text
     # pattern = re.compile('href=".*?"')
     # print(html)
-    a = round(random.uniform(1.5, 2.5), 2)
-    print(a)
-    time.sleep(a)
-    print(2)
+    start = time.time()
+    try:
+        if -1:
+            print(1)
+        html = requests.get('https://www.baidu.com/',
+                            headers=headers_1, timeout=(1, 1))
+    except Exception as e:
+        print(e)
+    print(time.time() - start)
