@@ -8,6 +8,7 @@ import datetime
 import re
 # import numpy as np
 import os
+import random
 
 
 headers_1 = {
@@ -69,6 +70,18 @@ async def control(sem, url, s):
 
 @task
 def crawl_images():
+    start = time.time()
+    day = datetime.date.today()
+    delta = datetime.timedelta(days=1)
+    day = str(day - delta)
+    if os.path.exists('./media/images/爬取/' + day):
+        with open('./media/images/爬取/' + day + '/flag.txt', 'r+') as f:
+            a = f.read()
+        if a == '已完全爬取':
+            print('已完整下载，不再爬取')
+            return
+        else:
+            print('之前下载不完整，重新爬取')
     html = requests.get('https://www.mzitu.com/', headers=headers_1, timeout=5)
     html.encoding = html.apparent_encoding
     content = html.text.replace('\n', '')
@@ -79,9 +92,6 @@ def crawl_images():
     urls = []
     num = 0
     res_urls = []
-    day = datetime.date.today()
-    delta = datetime.timedelta(days=1)
-    day = str(day - delta)
     for i in res_1:
         urls.append(re.search('href=".*?"', i).group()[6:-1])
         if re.search('time">.*?<', i).group()[6:-1] == day:
@@ -90,19 +100,28 @@ def crawl_images():
         print('昨天无更新')
         return
     else:
+        flag = 1
         print('昨天更新了', num, '张图片')
         for i in range(num):
             res_urls.append(crawl_urls(urls[i]))
         print('爬取图片url完成')
+        time.sleep(3)
         for i, url in enumerate(res_urls):
             for index, u in enumerate(url):
-                crawl_image(u, urls[i], day, index + 1, i)
-        print('爬取图片完成')
+                flag *= crawl_image(u, urls[i], day, index + 1, i)
+                time.sleep(round(random.uniform(1.5, 2.5), 2))
+        with open('./media/images/爬取/' + day + '/flag.txt', 'w+') as f:
+            if flag:
+                f.write('已完全爬取')
+            else:
+                f.write('未完全爬取')
+
+        print('爬取图片完成,花费时间：', str(round((time.time() - start) * 1000, 1)) + 'ms')
 
 
 @task
 def crawl_urls(url):
-    r = requests.get(url, headers=headers_2, timeout=5)
+    r = requests.get(url, headers=headers_2, timeout=(5, 10))
     r = r.text.replace('\n', '')
     pattern_3 = re.compile(url+r'/\d+')
     res_2 = pattern_3.findall(r)[-2]
@@ -127,15 +146,21 @@ def crawl_image(url, referer, folders, index, folder):
         'authority': 'i3.mmzztt.com',
         'Referer': referer
     }
-    res = requests.get(
-        url, headers=headers_3, timeout=5)
-    print(url)
-    if res.status_code != 200:
-        print('第'+str(folder)+'张图的第' + str(index) + '页爬取失败  ', res.status_code)
-        return
-    if not os.path.exists('./media/images/爬取/' + str(folders)):
-        os.makedirs('./media/images/爬取/' + str(folders))
-    if not os.path.exists('./media/images/爬取/' + str(folders)+'/'+str(folder)):
-        os.makedirs('./media/images/爬取/' + str(folders)+'/'+str(folder))
-    with open('./media/images/爬取/' + str(folders)+'/'+str(folder) + '/' + str(index) + '.jpg', 'wb') as f:
-        f.write(res.content)
+    try:
+        res = requests.get(
+            url, headers=headers_3, timeout=(5, 10))
+        if res.status_code != 200:
+            print('第'+str(folder)+'张图的第' + str(index) +
+                  '页爬取失败  ', res.status_code)
+            return 0
+        if not os.path.exists('./media/images/爬取/' + str(folders)):
+            os.makedirs('./media/images/爬取/' + str(folders))
+        if not os.path.exists('./media/images/爬取/' + str(folders)+'/'+str(folder)):
+            os.makedirs('./media/images/爬取/' + str(folders)+'/'+str(folder))
+        with open('./media/images/爬取/' + str(folders)+'/'+str(folder) + '/' + str(index) + '.jpg', 'wb') as f:
+            f.write(res.content)
+        return 1
+    except Exception as e:
+        print('第'+str(folder)+'张图的第' + str(index) +
+              '页爬取失败：', e)
+        return 0

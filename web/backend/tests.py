@@ -1,7 +1,7 @@
 import re
 import requests
-import datetime
-import numpy as np
+import random
+import time
 
 headers_1 = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -12,6 +12,11 @@ headers_1 = {
 
 
 if __name__ == '__main__':
-    html = requests.get('https://www.bilibili.com', headers=headers_1)
-    html = html.text
-    print(html)
+    # html = requests.get('https://www.bilibili.com', headers=headers_1)
+    # html = html.text
+    # pattern = re.compile('href=".*?"')
+    # print(html)
+    a = round(random.uniform(1.5, 2.5), 2)
+    print(a)
+    time.sleep(a)
+    print(2)
