@@ -13,16 +13,11 @@ headers_1 = {
 
 
 if __name__ == '__main__':
-    # html = requests.get('https://www.bilibili.com', headers=headers_1)
-    # html = html.text
-    # pattern = re.compile('href=".*?"')
-    # print(html)
     start = time.time()
-    try:
-        if -1:
-            print(1)
-        html = requests.get('https://www.baidu.com/',
-                            headers=headers_1, timeout=(0.1, 0.1))
-    except Exception as e:
-        print(e)
+    search = 'rm'
+    html = requests.get(
+        f'https://search.bilibili.com/all?keyword={search}&from_source=nav_suggest_new', headers=headers_1)
+    html = html.text
+    pattern = re.compile('href=".*?"')
+    print(html)
     print(time.time() - start)

@@ -87,7 +87,7 @@ def crawl_images():
             return
     try:
         html = requests.get('https://www.mzitu.com/',
-                            headers=headers_1, timeout=(1, 2))
+                            headers=headers_1, timeout=(2, 4))
         html.encoding = html.apparent_encoding
         content = html.text.replace('\n', '')
         pattern_1 = re.compile('<ul id="pins">.*</ul>')
@@ -116,7 +116,7 @@ def crawl_images():
                     flag *= crawl_image(u, urls[i], day, index + 1, i)
                     if flag < 0:
                         break
-                    time.sleep(round(random.uniform(1.5, 2.5), 2))
+                    time.sleep(round(random.uniform(0.5, 2.0), 2))
             with open('./media/images/爬取/' + day + '/flag.txt', 'w+') as f:
                 if flag == 1:
                     f.write('已完全爬取')
@@ -134,7 +134,7 @@ def crawl_images():
 
 @task
 def crawl_urls(url):
-    r = requests.get(url, headers=headers_2, timeout=(1, 2))
+    r = requests.get(url, headers=headers_2, timeout=(2, 4))
     r = r.text.replace('\n', '')
     pattern_3 = re.compile(url+r'/\d+')
     res_2 = pattern_3.findall(r)[-2]
@@ -161,7 +161,7 @@ def crawl_image(url, referer, folders, index, folder):
     }
     try:
         res = requests.get(
-            url, headers=headers_3, timeout=(1, 3))
+            url, headers=headers_3, timeout=(2, 4))
         if res.status_code != 200:
             print('第'+str(folder)+'张图的第' + str(index) +
                   '页爬取失败  ', res.status_code)
