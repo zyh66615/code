@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 14:14:33
+@LastEditTime: 2020-07-12 19:58:14
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -27,6 +27,12 @@ headers_2 = {
     'Referer': 'https://www.mzitu.com',
     'authority': 'www.mzitu.com'
 }
+
+'''
+@description: 爬取书籍
+@param {book_name: str}
+@return: None
+'''
 
 
 @task
@@ -140,8 +146,7 @@ def crawl_images():
                 else:
                     f.write('网站禁止访问')
 
-            print('爬取图片完成,花费时间：', str(
-                round((time.time() - start), 2)) + 's')
+            print('爬取图片完成,花费时间：', str(round((time.time() - start), 2)) + 's')
     except Exception as e:
         print(e)
         print('网站拒绝访问')
@@ -192,3 +197,11 @@ def crawl_image(url, referer, folders, index, folder):
         print('第'+str(folder)+'张图的第' + str(index) +
               '页爬取失败：', e)
         return -1
+
+
+@task
+def task3():
+    start = time.time()
+    
+    print(datetime.datetime.now())
+    print('花费时间：', str(round((time.time() - start), 2)) + 's')
