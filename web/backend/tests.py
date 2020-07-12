@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 21:59:29
+@LastEditTime: 2020-07-12 22:03:41
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -60,13 +60,14 @@ if __name__ == '__main__':
             cookies = session.cookies.get_dict()
             cookies = [key + "=" + value for key, value in cookies.items()]
             cookies = "; ".join(cookies)
+            print(cookies)
             session.headers["cookie"] = cookies
         else:
             print("登录失败，原因： %s" % info["reason"])
         return session
 
-    driver = webdriver.Chrome('./chromedriver.exe')
-    
+    # driver = webdriver.Chrome('./chromedriver.exe')
+    # driver.add_cookie()
 
     session = login('13728902077', 'z123123123')
     print(time.time() - start)
