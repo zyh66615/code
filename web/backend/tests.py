@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 21:35:51
+@LastEditTime: 2020-07-12 21:37:39
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -59,6 +59,7 @@ if __name__ == '__main__':
         session = requests.Session()
         res = session.post(loginURL, data=postData)
         jsonStr = res.content.decode('gbk')
+        print(jsonStr)
         info = json.loads(jsonStr)
         if info["retcode"] == "0":
             print("登录成功")
@@ -73,8 +74,7 @@ if __name__ == '__main__':
 
     session = login('13728902077', 'z123123123')
     response = session.get('https://weibo.com/p/aj/general/button?ajwvr=6&api=http://i.huati.weibo.com/aj/super/checkin')
-    r = json.loads(response.content.decode('gbk'))
-    print(r)
+    print()
     # sp:549e635859c90f8489a70e19e35ab590bf79deef6a508e6d198ebf3d19d54b183858fc9ce1e3a58671cffff155eca20616385325f70dd2a18da57de1e1f9a1bc029488684d95f95dec78d5787eed3e03e320092c18d01b45a75fcae394ca4b39569764918b50128e5eccb3a4b4ae6c107ee1ad83cc778753b6d19663f47c15b2
     #  username: MTM3Mjg5MDIwNzc=
     # print(base64.b64encode('13728902077'.encode('utf-8')).decode('utf-8'))
