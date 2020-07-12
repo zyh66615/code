@@ -1,3 +1,11 @@
+'''
+@Author: zyh
+@Date: 2020-07-09 10:34:27
+@LastEditTime: 2020-07-12 14:03:00
+@LastEditors: Please set LastEditors
+@Description: 异步任务和定时任务
+@FilePath: /web/backend/tasks.py
+'''
 from celery import task
 import time
 from .scrapy_thread import Downloader
@@ -66,6 +74,13 @@ async def task1(pool, urls, s):
 async def control(sem, url, s):
     async with sem:
         await s.save_text(url)
+
+
+'''
+@description: 每日爬取图片
+@param {None}
+@return: None
+'''
 
 
 @task

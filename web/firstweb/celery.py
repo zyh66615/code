@@ -1,3 +1,11 @@
+'''
+@Author: zyh
+@Date: 2020-07-09 10:34:28
+@LastEditTime: 2020-07-12 14:01:01
+@LastEditors: Please set LastEditors
+@Description: celery settings
+@FilePath: /web/firstweb/celery.py
+'''
 from __future__ import absolute_import, unicode_literals
 from celery.schedules import crontab
 import os
@@ -17,7 +25,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'task2': {
         'task': 'backend.tasks.crawl_images',
-        'schedule': crontab(minute="*/50")
+        'schedule': crontab(minute="*/5")
     }
 }
 # Load task modules from all registered Django app configs.
