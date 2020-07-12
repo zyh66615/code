@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:45:52
+@LastEditTime: 2020-07-12 22:47:37
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -57,10 +57,9 @@ def login(username, password):
 
 
 def get_cookie(username, password):
-    if os.path.exists('./cookie.txt'):
-        with open('./cookie.txt', 'r+') as f:
-            cookie = f.read()
-            print(cookie)
+    if os.path.exists('./cookie.npy'):
+        cookie = np.load('./cookie.npy', allow_pickle=True)
+        print(cookie)
     username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
     postData = {
         "entry": "sso",
@@ -89,7 +88,7 @@ def get_cookie(username, password):
         print("登录成功")
         cookies = session.cookies.get_dict()
         print('获取cookies成功')
-        np.save('./')
+        np.save('./cookie.npy', cookies)
     else:
         print("登录失败，原因： %s" % info["reason"])
     return cookies
