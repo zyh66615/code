@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 20:07:09
+@LastEditTime: 2020-07-12 20:15:47
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -11,6 +11,7 @@ import os
 import requests
 # import random
 import time
+import base64
 # from requests.adapters import HTTPAdapter
 
 headers_1 = {
