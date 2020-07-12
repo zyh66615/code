@@ -1,9 +1,9 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:28
-@LastEditTime: 2020-07-12 14:01:01
-@LastEditors: Please set LastEditors
-@Description: celery settings
+@LastEditTime: 2020-07-12 14:15:02
+@LastEditors: zyh
+@Description: celery的设置（包括定时任务）
 @FilePath: /web/firstweb/celery.py
 '''
 from __future__ import absolute_import, unicode_literals

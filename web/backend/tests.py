@@ -1,8 +1,16 @@
+'''
+@Description: 测试和杂项
+@Author: zyh
+@Date: 2020-07-09 10:34:27
+@LastEditTime: 2020-07-12 14:15:58
+@LastEditors: zyh
+@FilePath: /web/backend/tests.py
+'''
 import re
 import requests
-import random
+# import random
 import time
-from requests.adapters import HTTPAdapter
+# from requests.adapters import HTTPAdapter
 
 headers_1 = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',

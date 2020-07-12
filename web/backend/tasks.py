@@ -1,9 +1,9 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 14:03:00
-@LastEditors: Please set LastEditors
-@Description: 异步任务和定时任务
+@LastEditTime: 2020-07-12 14:14:33
+@LastEditors: zyh
+@Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
 '''
 from celery import task
