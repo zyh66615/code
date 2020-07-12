@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:29:42
+@LastEditTime: 2020-07-12 22:31:54
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -57,7 +57,9 @@ def login(username, password):
 
 
 def get_cookie(username, password):
-    if os.path.exists('./cookie.txt')
+    if os.path.exists('./cookie.txt'):
+        with open('./cookie.txt', 'r+') as f:
+            f.
     username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
     postData = {
         "entry": "sso",
