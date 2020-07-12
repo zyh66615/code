@@ -1,12 +1,5 @@
-[INFO  - 2020-07-12T15:07:57.686Z] GhostDriver - Main - running on port 47663
-[INFO  - 2020-07-12T15:07:58.637Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2020-07-12T15:07:58.637Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.customHeaders:  - {}
-[INFO  - 2020-07-12T15:07:58.637Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2020-07-12T15:07:58.637Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 78cd7fb0-c451-11ea-a55c-1d4354918119
-[ERROR - 2020-07-12T15:08:09.155Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.onError - msg: TypeError: null is not an object (evaluating 'button_post_vote')
-
-  phantomjs://platform/console++.js:263 in error
-[ERROR - 2020-07-12T15:08:09.155Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.onError - stack:
-  run (https://h5.sinaimg.cn/apps/topic/js/wbnight.js?version=52591700cf6e5477:1)
-
-  phantomjs://platform/console++.js:263 in error
+[INFO  - 2020-07-12T16:11:56.736Z] GhostDriver - Main - running on port 37331
+[INFO  - 2020-07-12T16:11:57.685Z] Session [690dbc30-c45a-11ea-b36f-8b913b15c458] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-07-12T16:11:57.685Z] Session [690dbc30-c45a-11ea-b36f-8b913b15c458] - page.customHeaders:  - {}
+[INFO  - 2020-07-12T16:11:57.685Z] Session [690dbc30-c45a-11ea-b36f-8b913b15c458] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-07-12T16:11:57.685Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 690dbc30-c45a-11ea-b36f-8b913b15c458
