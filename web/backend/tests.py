@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 20:24:25
+@LastEditTime: 2020-07-12 20:27:33
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -37,13 +37,13 @@ if __name__ == '__main__':
             "pagerefer": "",
             "vsnf": "1",
             "su": username,
-            "service": "sso",
+            "service": "miniblog",
             "sp": password,
             "sr": "1440*900",
             "encoding": "UTF-8",
             "cdult": "3",
             "domain": "sina.com.cn",
-            "prelt": "0",
+            "prelt": "413",
             "returntype": "TEXT",
         }
         loginURL = r'https://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.19)'
