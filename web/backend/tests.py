@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:54:51
+@LastEditTime: 2020-07-12 22:57:34
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -103,6 +103,10 @@ if __name__ == '__main__':
     driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
     # driver.add_cookie(cookie)
     # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
-    print(driver.page_source)
-    driver.quit()
+    try:
+        pass
+    except Exception as e:
+        print(e)
+    finally:
+        driver.quit()
     print(time.time() - start)
