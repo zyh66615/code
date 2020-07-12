@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 20:52:37
+@LastEditTime: 2020-07-12 20:54:08
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -55,7 +55,6 @@ if __name__ == '__main__':
             "prelt": "413",
             "returntype": "TEXT",
         }
-        print(password)
         loginURL = r'https://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.19)'
         session = requests.Session()
         res = session.post(loginURL, data=postData)
