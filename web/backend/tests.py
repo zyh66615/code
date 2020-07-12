@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 21:01:55
+@LastEditTime: 2020-07-12 21:03:51
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -28,7 +28,7 @@ headers_1 = {
 if __name__ == '__main__':
     start = time.time()
 
-    def get_sp(password,servertime, nonce, pubkey):
+    def get_sp(password, servertime, nonce, pubkey):
         string = (str(servertime) + "\t" + str(nonce) + "\n" + str(password)).encode("utf-8")
         public_key = rsa.PublicKey(int(pubkey, 16), int("10001", 16))
         pw = rsa.encrypt(string, public_key)
@@ -47,7 +47,7 @@ if __name__ == '__main__':
             "vsnf": "1",
             "su": username,
             "service": "miniblog",
-            "sp": '8eb40b022f02d849e95f318bb659b8b31fe095affd565de0679f3d4ce6eee5edbd7acfd5ead7c4d8dab07ae4e3ecfa1aef297e4df8be5054ac3a2b15c0fa20484ecb804c684ef646f7cc15a2f0a02603319718dc5f2c2d7b88910fb09206ebcb245a44534b73c418ccb81001daa0e1d9c9c51159ba4e37b68dfcdf930ec99689',
+            "sp": password,
             "sr": "1440*900",
             "encoding": "UTF-8",
             "cdult": "3",
