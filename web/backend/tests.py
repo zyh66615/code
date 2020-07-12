@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 20:27:33
+@LastEditTime: 2020-07-12 20:38:31
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -13,6 +13,8 @@ import requests
 import time
 import base64
 import json
+import rsa
+import binascii
 # from requests.adapters import HTTPAdapter
 
 headers_1 = {
@@ -26,6 +28,13 @@ headers_1 = {
 if __name__ == '__main__':
     start = time.time()
 
+    def get_sp(password,servertime, nonce, pubkey):
+    string = (str(servertime) + "\t" + str(nonce) + "\n" + str(password)).encode("utf-8")
+    public_key = rsa.PublicKey(int(pubkey, 16), int("10001", 16))
+    pw = rsa.encrypt(string, public_key)
+    sp = binascii.b2a_hex(pw).decode()
+    return sp
+    
     def login(username, password):
         username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
         postData = {
