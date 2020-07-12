@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:05:44
+@LastEditTime: 2020-07-12 22:07:36
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -55,14 +55,44 @@ def login(username, password):
         print("登录失败，原因： %s" % info["reason"])
     return session
 
-def get_cookie(name, password):
-    
+
+def get_cookie(username, password):
+    username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
+    postData = {
+        "entry": "sso",
+        "gateway": "1",
+        "from": "null",
+        "savestate": "30",
+        "useticket": "0",
+        "pagerefer": "",
+        "vsnf": "1",
+        "su": username,
+        "service": "miniblog",
+        "sp": password,
+        "sr": "1440*900",
+        "encoding": "UTF-8",
+        "cdult": "3",
+        "domain": "sina.com.cn",
+        "prelt": "413",
+        "returntype": "TEXT",
+    }
+    loginURL = r'https://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.19)'
+    session = requests.Session()
+    res = session.post(loginURL, data=postData)
+    jsonStr = res.content.decode('gbk')
+    info = json.loads(jsonStr)
+    if info["retcode"] == "0":
+        print("登录成功")
+        cookies = session.cookies.get_dict()
+    else:
+        print("登录失败，原因： %s" % info["reason"])
+    return cookies
+
 
 if __name__ == '__main__':
     start = time.time()
+    cookie = get_cookie('13728902077', 'z123123123')
+    driver = webdriver.Chrome('./chromedriver.exe')
+    driver.add_cookie(cookie)
 
-    # driver = webdriver.Chrome('./chromedriver.exe')
-    # driver.add_cookie()
-
-    session = login('13728902077', 'z123123123')
     print(time.time() - start)
