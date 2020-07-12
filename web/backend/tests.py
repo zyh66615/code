@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 20:54:08
+@LastEditTime: 2020-07-12 20:59:32
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -60,7 +60,6 @@ if __name__ == '__main__':
         res = session.post(loginURL, data=postData)
         jsonStr = res.content.decode('gbk')
         info = json.loads(jsonStr)
-        print(info)
         if info["retcode"] == "0":
             print("登录成功")
             # 把cookies添加到headers中，必须写这一步，否则后面调用API失败
