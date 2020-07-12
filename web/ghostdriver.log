@@ -3,3 +3,10 @@
 [INFO  - 2020-07-12T15:07:58.637Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.customHeaders:  - {}
 [INFO  - 2020-07-12T15:07:58.637Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
 [INFO  - 2020-07-12T15:07:58.637Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 78cd7fb0-c451-11ea-a55c-1d4354918119
+[ERROR - 2020-07-12T15:08:09.155Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.onError - msg: TypeError: null is not an object (evaluating 'button_post_vote')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-07-12T15:08:09.155Z] Session [78cd7fb0-c451-11ea-a55c-1d4354918119] - page.onError - stack:
+  run (https://h5.sinaimg.cn/apps/topic/js/wbnight.js?version=52591700cf6e5477:1)
+
+  phantomjs://platform/console++.js:263 in error

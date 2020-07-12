@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 23:07:53
+@LastEditTime: 2020-07-12 23:08:05
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -104,8 +104,7 @@ if __name__ == '__main__':
     # driver.add_cookie(cookie)
     # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
     try:
-        driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
-        time.sleep(10)
+        driver.get('https://passport.weibo.cn/signin/login?aa=up&entry=mweibo&res=wel&wm=3349&r=https%253A%252F%252Fm.weibo.cn%252F')
         print(driver.page_source)
     except Exception as e:
         print(e)
