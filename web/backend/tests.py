@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:21:56
+@LastEditTime: 2020-07-12 22:23:55
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -93,6 +93,8 @@ def get_cookie(username, password):
 if __name__ == '__main__':
     start = time.time()
     cookie = get_cookie('13728902077', 'z123123123')
+    option = webdriver.ChromeOptions()
+    options.binary_location ='./chromedriver'
     driver = webdriver.Chrome(executable_path='./chromedriver')
     driver.get('https://www.baidu.com')
     # driver.add_cookie(cookie)
