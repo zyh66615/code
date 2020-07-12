@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:43:53
+@LastEditTime: 2020-07-12 22:45:52
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -10,7 +10,7 @@ import re
 import os
 import requests
 from selenium import webdriver
-# import random
+import numpy as np
 import time
 import base64
 import json
@@ -60,7 +60,7 @@ def get_cookie(username, password):
     if os.path.exists('./cookie.txt'):
         with open('./cookie.txt', 'r+') as f:
             cookie = f.read()
-        return cookie
+            print(cookie)
     username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
     postData = {
         "entry": "sso",
@@ -89,6 +89,7 @@ def get_cookie(username, password):
         print("登录成功")
         cookies = session.cookies.get_dict()
         print('获取cookies成功')
+        np.save('./')
     else:
         print("登录失败，原因： %s" % info["reason"])
     return cookies
@@ -97,10 +98,10 @@ def get_cookie(username, password):
 if __name__ == '__main__':
     start = time.time()
     cookie = get_cookie('13728902077', 'z123123123')
-    driver = webdriver.PhantomJS('./phantomjs-2.1.1-linux-x86_64/bin/PhantomJs')
-    driver.get('https://www.baidu.com')
-    # driver.add_cookie(cookie)
-    # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
-    print(driver.page_source)
-    driver.quit()
+    # driver = webdriver.PhantomJS('./phantomjs-2.1.1-linux-x86_64/bin/phantomjs')
+    # driver.get('https://www.baidu.com')
+    # # driver.add_cookie(cookie)
+    # # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
+    # print(driver.page_source)
+    # driver.quit()
     print(time.time() - start)
