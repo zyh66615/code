@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 19:58:14
+@LastEditTime: 2020-07-12 20:10:26
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -202,6 +202,14 @@ def crawl_image(url, referer, folders, index, folder):
 @task
 def task3():
     start = time.time()
-    
+    a = os.popen('git status').readlines()
+    res = []
+    for i in a:
+        if i != '\n':
+            res.append(''.join(i.split()))
+    if len(res) != 3:
+        os.system('./git.sh')
+    else:
+        print('无git修改')
     print(datetime.datetime.now())
     print('花费时间：', str(round((time.time() - start), 2)) + 's')
