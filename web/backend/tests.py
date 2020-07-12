@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 21:55:45
+@LastEditTime: 2020-07-12 21:56:20
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -64,6 +64,8 @@ if __name__ == '__main__':
         else:
             print("登录失败，原因： %s" % info["reason"])
         return session
+
+    driver = webdriver.Chrome('./')
 
     session = login('13728902077', 'z123123123')
     print(time.time() - start)
