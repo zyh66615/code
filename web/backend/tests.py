@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:57:34
+@LastEditTime: 2020-07-12 23:01:21
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -100,11 +100,13 @@ if __name__ == '__main__':
     username = '13728902077'
     password = 'z123123123'
     driver = webdriver.PhantomJS('./phantomjs-2.1.1-linux-x86_64/bin/phantomjs')
-    driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
+    
     # driver.add_cookie(cookie)
     # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
     try:
-        pass
+        driver.implicitly_wait(10)
+        driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
+        driver.find_element()
     except Exception as e:
         print(e)
     finally:
