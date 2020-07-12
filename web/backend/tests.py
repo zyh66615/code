@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 23:01:21
+@LastEditTime: 2020-07-12 23:03:33
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -106,7 +106,7 @@ if __name__ == '__main__':
     try:
         driver.implicitly_wait(10)
         driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
-        driver.find_element()
+        driver.find_element_by_tag_name()
     except Exception as e:
         print(e)
     finally:
