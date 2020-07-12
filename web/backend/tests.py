@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:25:03
+@LastEditTime: 2020-07-12 22:29:42
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -57,6 +57,7 @@ def login(username, password):
 
 
 def get_cookie(username, password):
+    if os.path.exists('./cookie.txt')
     username = base64.b64encode(username.encode('utf-8')).decode('utf-8')
     postData = {
         "entry": "sso",
@@ -94,6 +95,7 @@ if __name__ == '__main__':
     start = time.time()
     cookie = get_cookie('13728902077', 'z123123123')
     options = webdriver.ChromeOptions()
+    options.add_argument("--no-sandbox")
     options.binary_location = '/home/zyh/code/web/chromedriver'
     driver = webdriver.Chrome(chrome_options=options)
     driver.get('https://www.baidu.com')
