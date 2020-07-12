@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:36:17
+@LastEditTime: 2020-07-12 22:38:43
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -97,9 +97,7 @@ def get_cookie(username, password):
 if __name__ == '__main__':
     start = time.time()
     cookie = get_cookie('13728902077', 'z123123123')
-    options = webdriver.ChromeOptions()
-    options.binary_location = '/home/zyh/code/web/chromedriver'
-    driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.PhantomJS()
     driver.get('https://www.baidu.com')
     # driver.add_cookie(cookie)
     # driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
