@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 22:07:36
+@LastEditTime: 2020-07-12 22:08:58
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -84,6 +84,7 @@ def get_cookie(username, password):
     if info["retcode"] == "0":
         print("登录成功")
         cookies = session.cookies.get_dict()
+        print('获取cookies成功')
     else:
         print("登录失败，原因： %s" % info["reason"])
     return cookies
@@ -94,5 +95,5 @@ if __name__ == '__main__':
     cookie = get_cookie('13728902077', 'z123123123')
     driver = webdriver.Chrome('./chromedriver.exe')
     driver.add_cookie(cookie)
-
+    driver.get('https://weibo.com/p/1008082c2fa1b7274dc344e5a228ba0983f864/super_index')
     print(time.time() - start)
