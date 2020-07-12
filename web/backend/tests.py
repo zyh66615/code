@@ -2,11 +2,12 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 14:15:58
+@LastEditTime: 2020-07-12 20:07:09
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
 import re
+import os
 import requests
 # import random
 import time
@@ -22,10 +23,8 @@ headers_1 = {
 
 if __name__ == '__main__':
     start = time.time()
-    search = 'rm'
-    html = requests.get(
-        f'https://search.bilibili.com/all?keyword={search}&from_source=nav_suggest_new', headers=headers_1)
-    html = html.text
-    pattern = re.compile('href=".*?"')
-    print(html)
+    a = os.popen('git status').readlines()
+    for i in a:
+        if i != '\n':
+            print(''.join(i.split()))
     print(time.time() - start)
