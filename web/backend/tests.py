@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-12 21:44:00
+@LastEditTime: 2020-07-12 21:44:07
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -74,10 +74,7 @@ if __name__ == '__main__':
         return session
 
     session = login('13728902077', 'z123123123')
-    response = session.get('https: // weibo.com/p/aj/general/button?ajwvr=6 & api=http: // i.huati.weibo.com/aj/super/checkin & texta=% E5 % B7 % B2 % E7 % AD % BE % E5 % 88 % B0 & textb= % E5 % B7 % B2 % E7 % AD % BE % E5 % 88 % B0 & status=1 & id=1008082c2fa1b7274dc344e5a228ba0983f864 & location=page_100808_super_index & timezone=GMT+0800 & lang=zh-cn & plat=Win32 & ua=Mozilla/5.0 % 20(Windows % 20NT % 2010.0
-                                                                                                                                                                                                                                                                                                                                                                                                        % 20Win64
-                                                                                                                                                                                                                                                                                                                                                                                                        % 20x64) % 20AppleWebKit/537.36 % 20(KHTML, % 20like % 20Gecko) % 20Chrome/83.0.4103.116 % 20Safari/537.36 % 20Edg/83.0.478.61 & screen=2048*1152 & __rnd=1594560500572
-                           ')
+    response = session.get('https://weibo.com/p/aj/general/button?ajwvr=6&api=http://i.huati.weibo.com/aj/super/checkin&texta=%E5%B7%B2%E7%AD%BE%E5%88%B0&textb=%E5%B7%B2%E7%AD%BE%E5%88%B0&status=1&id=1008082c2fa1b7274dc344e5a228ba0983f864&location=page_100808_super_index&timezone=GMT+0800&lang=zh-cn&plat=Win32&ua=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/83.0.4103.116%20Safari/537.36%20Edg/83.0.478.61&screen=2048*1152&__rnd=1594560500572')
     print(response.text)
     # sp:549e635859c90f8489a70e19e35ab590bf79deef6a508e6d198ebf3d19d54b183858fc9ce1e3a58671cffff155eca20616385325f70dd2a18da57de1e1f9a1bc029488684d95f95dec78d5787eed3e03e320092c18d01b45a75fcae394ca4b39569764918b50128e5eccb3a4b4ae6c107ee1ad83cc778753b6d19663f47c15b2
     #  username: MTM3Mjg5MDIwNzc=
