@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-13 13:08:34
+@LastEditTime: 2020-07-13 13:53:06
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -223,4 +223,4 @@ def task4(urls):
         response = requests.get(url, headers=cookie)
         jsonstr = response.content.decode('gbk')
         info = json.loads(jsonstr)
-        print(name + '的结果：', info)
+        print(name + '：', info)
