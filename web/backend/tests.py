@@ -2,7 +2,7 @@
 @Description: 测试和杂项
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-13 00:23:14
+@LastEditTime: 2020-07-13 12:54:14
 @LastEditors: zyh
 @FilePath: /web/backend/tests.py
 '''
@@ -51,6 +51,7 @@ def login(username, password):
         cookies = session.cookies.get_dict()
         cookies = [key + "=" + value for key, value in cookies.items()]
         cookies = "; ".join(cookies)
+        print(cookies)
         session.headers["cookie"] = cookies
     else:
         print("登录失败，原因： %s" % info["reason"])
@@ -106,11 +107,11 @@ if __name__ == '__main__':
     start = time.time()
     username = '13728902077'
     password = 'z123123123'
-    # session = login(username, password)
-    response = requests.get('https://weibo.com/p/aj/general/button?ajwvr=6&api=http://i.huati.weibo.com/aj/super/checkin&texta=%E7%AD%BE%E5%88%B0&textb=%E5%B7%B2%E7%AD%BE%E5%88%B0&status=0&id=1008082c2fa1b7274dc344e5a228ba0983f864&location=page_100808_super_index&timezone=GMT+0800&lang=zh-cn&plat=Win32&ua=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/83.0.4103.116%20Safari/537.36%20Edg/83.0.478.61&screen=2048*1152', headers=headers)
-    jsonstr = response.content.decode('gbk')
-    info = json.loads(jsonstr)
-    print(info)
+    session = login(username, password)
+    # response = requests.get('https://weibo.com/p/aj/general/button?ajwvr=6&api=http://i.huati.weibo.com/aj/super/checkin&texta=%E7%AD%BE%E5%88%B0&textb=%E5%B7%B2%E7%AD%BE%E5%88%B0&status=0&id=1008082c2fa1b7274dc344e5a228ba0983f864&location=page_100808_super_index&timezone=GMT+0800&lang=zh-cn&plat=Win32&ua=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/83.0.4103.116%20Safari/537.36%20Edg/83.0.478.61&screen=2048*1152', headers=headers)
+    # jsonstr = response.content.decode('gbk')
+    # info = json.loads(jsonstr)
+    # print(info)
     # print(response.status_code)
     # driver = webdriver.PhantomJS(
     #     './phantomjs-2.1.1-linux-x86_64/bin/phantomjs')
