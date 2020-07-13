@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:28
-@LastEditTime: 2020-07-13 18:51:54
+@LastEditTime: 2020-07-13 18:55:05
 @LastEditors: zyh
 @Description: celery的设置（包括定时任务）
 @FilePath: /web/firstweb/celery.py
@@ -29,13 +29,15 @@ app.conf.beat_schedule = {
     },
     'task3': {
         'task': 'backend.tasks.task3',
-        'schedule': crontab(minute="*/2", hour='10-22')
+        'schedule': crontab(minute="*/20", hour='10-22')
     },
     'task4': {
         'task': 'backend.tasks.task4',
         'schedule': crontab(hour='11'),
     }
 }
-app.con
+app.conf.update(
+    BROKER_HEARTBEAT=None
+)
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
