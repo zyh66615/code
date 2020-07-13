@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:28
-@LastEditTime: 2020-07-13 18:46:06
+@LastEditTime: 2020-07-13 18:51:54
 @LastEditors: zyh
 @Description: celery的设置（包括定时任务）
 @FilePath: /web/firstweb/celery.py
@@ -36,5 +36,6 @@ app.conf.beat_schedule = {
         'schedule': crontab(hour='11'),
     }
 }
+app.con
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
