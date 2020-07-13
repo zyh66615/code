@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:28
-@LastEditTime: 2020-07-13 14:32:34
+@LastEditTime: 2020-07-13 14:40:26
 @LastEditors: zyh
 @Description: celery的设置（包括定时任务）
 @FilePath: /web/firstweb/celery.py
@@ -36,7 +36,7 @@ app.conf.beat_schedule = {
     },
     'task3': {
         'task': 'backend.tasks.task3',
-        'schedule': crontab(minute="*/5", hour='10-22')
+        'schedule': crontab(minute="*/3", hour='10-22')
     },
     'task4': {
         'task': 'backend.tasks.task4',
