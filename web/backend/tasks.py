@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-13 14:10:57
+@LastEditTime: 2020-07-13 14:18:14
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -217,10 +217,10 @@ def task3():
 
 
 @task
-def task4(*urls):
+def task4(urls):
     print(urls)
     cookie = np.load('./cookie.npy', allow_pickle=True)
-    for name, url in urls.items():
+    for name, url in urls[0].items():
         response = requests.get(url, headers=cookie)
         jsonstr = response.content.decode('gbk')
         info = json.loads(jsonstr)
