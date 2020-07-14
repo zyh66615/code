@@ -30,10 +30,6 @@ app.conf.beat_schedule = {
     'task3': {
         'task': 'backend.tasks.task3',
         'schedule': crontab(minute="*/10", hour='10-22')
-    },
-    'task4': {
-        'task': 'backend.tasks.task4',
-        'schedule': crontab(hour='12'.mintue),
     }
 }
 app.conf.update(
