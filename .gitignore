@@ -6,3 +6,5 @@ web/chromedriver*
 web/do.sh
 web/q.sh
 web/__pycache__
+web/phantomjs
+web/*.log
