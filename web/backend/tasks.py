@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-15 13:23:01
+@LastEditTime: 2020-07-18 10:16:10
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -210,7 +210,7 @@ def task3():
             res.append(''.join(i.split()))
     if len(res) != 3:
         os.system('./git.sh')
-    else: 
+    else:
         print('无git修改')
     print(datetime.datetime.now())
     print('花费时间：', str(round((time.time() - start), 2)) + 's')
