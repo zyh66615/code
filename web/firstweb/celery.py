@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:28
-@LastEditTime: 2020-07-14 14:32:15
+@LastEditTime: 2020-07-21 23:21:12
 @LastEditors: zyh
 @Description: celery的设置（包括定时任务）
 @FilePath: /web/firstweb/celery.py
@@ -25,11 +25,11 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'task2': {
         'task': 'backend.tasks.crawl_images',
-        'schedule': crontab(minute="0,30", hour='10-22')
+        'schedule': crontab(minute="0,21,30", hour='10-23')
     },
     'task3': {
         'task': 'backend.tasks.task3',
-        'schedule': crontab(minute="*/5", hour='10-22')
+        'schedule': crontab(minute="*/5", hour='10-23')
     }
 }
 app.conf.update(
