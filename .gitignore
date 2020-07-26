@@ -8,3 +8,8 @@ web/q.sh
 web/__pycache__
 web/phantomjs
 web/*.log
+web/run_c.sh
+web/so.sh
+web/test*
+web/*.out
+web/*.svg
