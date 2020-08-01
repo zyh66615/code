@@ -1,7 +1,7 @@
 '''
 @Author: zyh
 @Date: 2020-07-09 10:34:27
-@LastEditTime: 2020-07-30 00:20:39
+@LastEditTime: 2020-07-30 00:21:19
 @LastEditors: zyh
 @Description: 异步任务和定时任务的实现
 @FilePath: /web/backend/tasks.py
@@ -25,7 +25,8 @@ headers_1 = {
     (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44'
 }
 headers_2 = {
-    'User-Agent': 'Mozilla/5.0',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
+    (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44',
     'Referer': 'https://www.mzitu.com',
     'authority': 'www.mzitu.com'
 }
